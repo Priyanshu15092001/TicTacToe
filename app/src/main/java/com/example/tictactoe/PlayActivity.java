@@ -3,7 +3,9 @@ package com.example.tictactoe;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,6 +18,7 @@ public class PlayActivity extends AppCompatActivity {
 int playerturn=0;
 int flag=-9999;
 TextView textView;
+String player0,player1;
 int gameestate[]={-1,-1,-1,-1,-1,-1,-1,-1,-1};
 int allwinstate[][]={{0,1,2},
                  {3,4,5},
@@ -25,12 +28,16 @@ int allwinstate[][]={{0,1,2},
                  {2,5,8},
                  {0,4,8},
                  {2,4,6}};
+SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(activity_play);
+        sharedPreferences=PreferenceManager.getDefaultSharedPreferences(this);
+        player0=sharedPreferences.getString("player0","First Player");
+        player1=sharedPreferences.getString("player1","Second Player");
         textView=(TextView)findViewById(R.id.textView3);
-        textView.setText("O's turn");
+        textView.setText(player0+"'s turn");
     }
     public void homeButtonClick(View view)
     {
@@ -58,11 +65,11 @@ public void playerTapped(View view)
         if (playerturn == 0) {
             imageView.setImageResource(R.drawable.o);
             playerturn = 1;
-            textView.setText("X's turn");
+            textView.setText(player1+"'s turn");
         } else if (playerturn == 1) {
             imageView.setImageResource(R.drawable.x);
             playerturn = 0;
-            textView.setText("O's turn");
+            textView.setText(player0+"'s turn");
         }
         for (int[] onewinstate : allwinstate) {
             if (gameestate[onewinstate[0]] == 0 &&
@@ -89,9 +96,9 @@ public void playerTapped(View view)
         }
 
         if (flag == 0)
-            textView.setText("Player O wins");
+            textView.setText(player0+" wins");
         else if (flag == 1)
-            textView.setText("Player X wins");
+                    textView.setText(player1+" wins");
         else if (flag == -1)
             textView.setText("Draw");
     }

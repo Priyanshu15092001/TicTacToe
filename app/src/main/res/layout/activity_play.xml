@@ -4,19 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ee6a6a"
+    android:background="@color/grey_button"
+    android:padding="5dp"
     tools:context=".PlayActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/grid"
         android:id="@+id/grid_container"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="150dp"
-        tools:layout_editor_absoluteY="0dp"
-       tools:layout_editor_absoluteX="0dp" >
+        android:layout_width="315dp"
+        android:layout_height="285dp"
+        android:background="@drawable/grid"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="3">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,29 +38,30 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:contentDescription="TODO"
+                    android:contentDescription="@string/img1"
+                    android:onClick="playerTapped"
                     android:padding="15dp"
-                    android:tag="0"
-                    android:onClick="playerTapped" />
+                    android:tag="0" />
 
                 <ImageView
                     android:id="@+id/imageView2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:contentDescription="TODO"
+                    android:contentDescription="@string/img2"
+                    android:onClick="playerTapped"
                     android:padding="15dp"
-                    android:tag="1"
-                    android:onClick="playerTapped" />
+                    android:tag="1" />
 
                 <ImageView
                     android:id="@+id/imageView3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:contentDescription="@string/img3"
+                    android:onClick="playerTapped"
                     android:padding="15dp"
-                    android:tag="2"
-                    android:onClick="playerTapped" />
+                    android:tag="2" />
             </LinearLayout>
 
             <LinearLayout
@@ -71,29 +75,30 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:contentDescription="TODO"
+                    android:contentDescription="@string/img4"
+                    android:onClick="playerTapped"
                     android:padding="15dp"
-                    android:tag="3"
-                    android:onClick="playerTapped" />
+                    android:tag="3" />
 
                 <ImageView
                     android:id="@+id/imageView5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:contentDescription="TODO"
+                    android:contentDescription="@string/img5"
+                    android:onClick="playerTapped"
                     android:padding="15dp"
-                    android:tag="4"
-                    android:onClick="playerTapped" />
+                    android:tag="4" />
 
                 <ImageView
                     android:id="@+id/imageView6"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:tag="5"
+                    android:contentDescription="@string/img6"
                     android:onClick="playerTapped"
-                    android:padding="15dp" />
+                    android:padding="15dp"
+                    android:tag="5" />
             </LinearLayout>
 
             <LinearLayout
@@ -107,29 +112,30 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:contentDescription="TODO"
+                    android:contentDescription="@string/img7"
+                    android:onClick="playerTapped"
                     android:padding="15dp"
-                    android:tag="6"
-                    android:onClick="playerTapped" />
+                    android:tag="6" />
 
                 <ImageView
                     android:id="@+id/imageView8"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:contentDescription="TODO"
+                    android:contentDescription="@string/img8"
+                    android:onClick="playerTapped"
                     android:padding="15dp"
-                    android:tag="7"
-                    android:onClick="playerTapped" />
+                    android:tag="7" />
 
                 <ImageView
                     android:id="@+id/imageView9"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:contentDescription="@string/img9"
+                    android:onClick="playerTapped"
                     android:padding="15dp"
-                    android:tag="8"
-                    android:onClick="playerTapped" />
+                    android:tag="8" />
             </LinearLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -140,11 +146,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
         android:layout_marginLeft="80dp"
-        android:background="@drawable/red_button"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/grey_button"
+        android:fontFamily="cursive"
         android:onClick="homeButtonClick"
         android:text="@string/home"
         android:textColor="#ecba24"
-        android:textSize="15sp"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -154,13 +163,17 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
         android:layout_marginEnd="40dp"
         android:layout_marginRight="40dp"
-        android:background="@drawable/red_button"
+        android:background="@drawable/grey_button"
+        android:fontFamily="cursive"
         android:onClick="playagainButtonClick"
+        android:padding="10dp"
         android:text="@string/play_again"
         android:textColor="#ecba24"
-        android:textSize="15sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.718"
@@ -172,15 +185,17 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="68dp"
         android:fontFamily="cursive"
-        android:text="TextView"
+        android:text="@string/textview"
         android:textColor="#ecba24"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@id/grid_container"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toTopOf="@+id/grid_container"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.356" />
 </androidx.constraintlayout.widget.ConstraintLayout>
